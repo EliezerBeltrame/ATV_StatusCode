@@ -2,6 +2,7 @@ package com.example.Curso.banco;
 
 import com.example.Curso.model.Aluno;
 import com.example.Curso.model.Curso;
+import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -49,7 +50,7 @@ public class CursoDb {
     }
 
     // insert de aluno novo no curso
-    public Curso insertAluno(int idCurso, Aluno aluno){
+    public ResponseEntity<ArrayList<Aluno>> insertAluno(int idCurso, Aluno aluno){
         Curso cursoBd = cursos.stream()
                 .filter(c -> c.getIdCurso() == idCurso)
                 .findFirst()
